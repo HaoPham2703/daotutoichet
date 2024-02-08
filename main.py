@@ -37,8 +37,23 @@ def main():
 
 def filter_words(input_file, output_file):
     words_to_skip = set(["aa", "ab", "as", "ad", "ag", "ah", "ak", "al", "az", "ax", "av", "aq", "aw", "ae", "ar", "af", "aj",
-                         "Bb", "Bq", "Bw", "Br", "Bt", "By", "Bp", "Bs", "Bd", "Bf", "Bg", "Bh", "Bj", "Bk", "Bl", "Bz", "Bx", "Bc", "Bv", "Bn", "Bm",
-                         "Cc", "Cq", "Cw", "Ce", "Cr", "Ct", "Cy", "Ci", "Cp", "Cs", "Cd", "Cf", "Cg", "Cj", "Ck", "Cl", "Cz", "Cx", "Cv", "Cb", "Cn", "Cm"])
+ "bb", "bq", "bw", "br", "bt", "by", "bp", "bs", "bd", "bf", "bg", "bh", "bj", "bk", "bl", "bz", "bx", "bc", "bv", "bn", "bm",
+ "cc", "cq", "cw", "ce", "cr", "ct", "cy", "ci", "cp", "cs", "cd", "cf", "cg", "cj", "ck", "cl", "cz", "cx", "cv", "cb", "cn", "cm",
+ "dd", "dq", "dw", "dr", "dt", "dp", "dy", "ds", "df", "dg", "dh", "dj", "dk", "dl", "dz", "dx", "dc", "dv", "db", "dn", "dm",
+ "ee", "ew", "er", "et", "ey", "ep", "ea", "es", "ed", "ef", "eg", "eh", "ej", "ek", "el", "ez", "ex", "ec", "ev", "eb",
+ "gg", "gq", "gw", "ge", "gr", "gt", "gy", "gp", "gs", "gd", "gf", "gj", "gk", "gl", "gz", "gx", "gc", "gv", "gb", "gn", "gm",
+ "hh", "hq", "hw", "hr", "ht", "hp", "hs", "hd", "hf", "hg", "hj", "hk", "hl", "hz", "hx", "hc", "hv", "hb", "hn", "hm",
+ "ii", "iq", "ie", "io", "ip", "is", "id", "if", "ig", "ih", "ij", "ik", "il", "iz", "ix", "ic", "iv", "ib",
+ "kk", "kq", "kw", "kr", "kt", "ku", "ka", "ks", "kd", "kf", "kg", "kh", "kj", "kl", "kz", "kx", "kc", "kv", "kb", "kn", "km",
+ "ll", "lq", "lr", "lt", "lp", "ls", "ld", "lf", "lg", "lh", "lj", "lk", "lz", "lx", "lc", "lv", "lb", "ln", "lm",
+ "mm", "mq", "mr", "mt", "mp", "ms", "md", "mf", "mg", "mh", "mj", "mk", "ml", "mz", "mx", "mc", "mv", "mb", "mn",
+ "nn", "nq", "nw", "nr", "nt", "np", "ns", "nd", "nf", "ng", "nh", "nj", "nk", "nl", "nz", "nx", "nc", "nv", "nb", "nm",
+ "oq", "ow", "or", "oy", "os", "od", "of", "og", "oh", "oj", "ok", "ol", "oz", "ox", "oc", "ov", "ob",
+ "pp", "pq", "pe", "pr", "pt", "py", "pu", "pi", "po", "pa", "ps", "pd", "pf", "pg", "ph", "pj", "pk", "pl", "pz", "px", "pc", "pv", "pb", "pn", "pm",
+ "rr", "rq", "rw", "rt", "ry", "rp", "rs", "rd", "rf", "rg", "rh", "rj", "rk", "rl", "rz", "rx", "rc", "rv", "rb", "rn", "rm",
+ "qq", "qw", "qe", "qr", "qt", "qy", "qi", "qo", "qp", "qa", "qs", "qd", "qf", "qg", "qh", "qj", "qk", "ql", "qz", "qx", "qc", "qv", "qb", "qn", "qm",
+ "ss", "sq", "sw", "sr", "st", "sp", "sd", "sf", "sg", "sh", "sj", "sk", "sl", "sz", "sx", "sc", "sv", "sb", "sn", "sm",
+ "tt", "tq", "tw", "ts", "td", "tf", "eg", "th", "tj", "tk", "tl", "tz", "tz", "tc", "tv", "tb", "tn", "tm"])
 
     with open(input_file, "r") as f_input:
         lines = f_input.readlines()
