@@ -1,24 +1,19 @@
-MAX_SIZE = 100
-
-# Hàm để in ra các từ từ các ký tự đã nhập
-def print_words(array, start, size):
-    # Nếu chỉ còn một ký tự, in ra mảng array
+def print_words(array, start, size, output_file):
     if start == size - 1:
-        print(''.join(array))
+        word = ''.join(array)
+        if ''.join(array[:2]) not in ["aa", "ab", "as", "ad", "ag", "ah", "ak", "al", "az", "ax", "av", "aq", "aw", "ae", "ar", "af", "aj"]:
+            print(word)
+            output_file.write(word + '\n')
         return
 
-    # Tạo hoán vị cho các ký tự từ start đến size - 1
     for i in range(start, size):
-        # Hoán đổi ký tự tại vị trí start và vị trí hiện tại
         array[start], array[i] = array[i], array[start]
-
-        # Đệ quy với start tăng lên một và size không thay đổi
-        print_words(array, start + 1, size)
-
-        # Hoàn ngược lại việc hoán đổi ký tự để trả lại trạng thái ban đầu
+        if ''.join(array[:2]) not in ["aa", "ab", "as", "ad", "ag", "ah", "ak", "al", "az", "ax", "av", "aq", "aw", "ae", "ar", "af", "aj"]:
+            print_words(array, start + 1, size, output_file)
         array[start], array[i] = array[i], array[start]
 
 def main():
+    MAX_SIZE = 100
     array = [''] * MAX_SIZE
 
     size = int(input("Nhập số lượng ký tự (tối đa {}): ".format(MAX_SIZE)))
@@ -31,8 +26,34 @@ def main():
     for i in range(size):
         array[i] = input()
 
-    print("Các từ từ các ký tự bạn nhập là:")
-    print_words(array, 0, size)
+    with open("KETQUAINLAN1.txt", "w") as output_file:
+        print("Các từ từ các ký tự bạn nhập là:")
+        print_words(array, 0, size, output_file)
+
+    
+
+    # Lọc từ và tạo file mới
+    filter_words("KETQUAINLAN1.txt", "Jolowy_my_love.txt")
+
+def filter_words(input_file, output_file):
+    words_to_skip = set(["aa", "ab", "as", "ad", "ag", "ah", "ak", "al", "az", "ax", "av", "aq", "aw", "ae", "ar", "af", "aj",
+                         "Bb", "Bq", "Bw", "Br", "Bt", "By", "Bp", "Bs", "Bd", "Bf", "Bg", "Bh", "Bj", "Bk", "Bl", "Bz", "Bx", "Bc", "Bv", "Bn", "Bm",
+                         "Cc", "Cq", "Cw", "Ce", "Cr", "Ct", "Cy", "Ci", "Cp", "Cs", "Cd", "Cf", "Cg", "Cj", "Ck", "Cl", "Cz", "Cx", "Cv", "Cb", "Cn", "Cm"])
+
+    with open(input_file, "r") as f_input:
+        lines = f_input.readlines()
+
+    filtered_words = []
+    for line in lines:
+        word = line.strip()
+        if word[:2] not in words_to_skip:
+            filtered_words.append(word)
+
+    with open(output_file, "w") as f_output:
+        for word in filtered_words:
+            f_output.write(word + '\n')
+
+
 
 if __name__ == "__main__":
     main()
